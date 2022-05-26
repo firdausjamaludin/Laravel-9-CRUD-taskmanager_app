@@ -27,6 +27,15 @@ Route::middleware([
     })->name('dashboard');
 });
 
+//
 use App\Http\Livewire\Tasks;
 
 Route::get('tasks', Tasks::class)->middleware('auth');
+
+//
+use App\Http\Controllers\CountdownTimerController;
+
+#Countdown timer example
+Route::get('/create-timer', [CountdownTimerController::class, 'create']);
+Route::post('/update-timer', [CountdownTimerController::class, 'update'])->name('timer.update');
+Route::get('/view-timer', [CountdownTimerController::class, 'view']);
