@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;
@@ -7,7 +8,7 @@ use App\Models\Task;
 
 class Tasks extends Component
 {
-    public $tasks, $title, $body, $task_id;
+    public $tasks, $title, $body, $status, $task_id;
     public $isOpen = 0;
 
     /**
@@ -61,6 +62,7 @@ class Tasks extends Component
     {
         $this->title = '';
         $this->body = '';
+        $this->status = '';
         $this->task_id = '';
     }
 
@@ -74,11 +76,13 @@ class Tasks extends Component
         $this->validate([
             'title' => 'required',
             'body' => 'required',
+            'status' => 'required',
         ]);
 
         Task::updateOrCreate(['id' => $this->task_id], [
             'title' => $this->title,
-            'body' => $this->body
+            'body' => $this->body,
+            'status' => $this->status
         ]);
 
         session()->flash(
@@ -101,6 +105,7 @@ class Tasks extends Component
         $this->task_id = $id;
         $this->title = $task->title;
         $this->body = $task->body;
+        $this->status = $task->status;
 
         $this->openModal();
     }

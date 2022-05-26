@@ -25,6 +25,7 @@
                         <th class="px-4 py-2 w-20">No.</th>
                         <th class="px-4 py-2">Title</th>
                         <th class="px-4 py-2">Body</th>
+                        <th class="px-4 py-2">Status</th>
                         <th class="px-4 py-2">Action</th>
                     </tr>
                 </thead>
@@ -34,6 +35,15 @@
                         <td class="border px-4 py-2">{{ $task->id }}</td>
                         <td class="border px-4 py-2">{{ $task->title }}</td>
                         <td class="border px-4 py-2">{{ $task->body }}</td>
+                        <td class="border px-4 py-2">
+                            @if ($task->status)
+                            <p>Completed</p>
+                            @else
+                            <p>Incomplete</p>
+                            @endif
+
+
+                        </td>
                         <td class="border px-4 py-2">
                             <button wire:click="edit({{ $task->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
                             <button wire:click="delete({{ $task->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>

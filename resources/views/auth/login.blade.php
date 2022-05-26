@@ -1,3 +1,8 @@
+<div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+    <a href="http://taskmanager_app.test/login" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <a href="http://taskmanager_app.test/register" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+</div>
+
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -7,9 +12,9 @@
         <x-jet-validation-errors class="mb-4" />
 
         @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('status') }}
+        </div>
         @endif
 
         <form method="POST" action="{{ route('login') }}">
@@ -34,9 +39,9 @@
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    {{ __('Forgot your password?') }}
+                </a>
                 @endif
 
                 <x-jet-button class="ml-4">
