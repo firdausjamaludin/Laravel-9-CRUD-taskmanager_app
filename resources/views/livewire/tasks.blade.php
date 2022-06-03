@@ -33,7 +33,8 @@
                 <tbody>
                     @foreach($tasks as $task)
                     <tr>
-                        <td class="border px-4 py-2">{{ $task->id }}</td>
+                        <!-- <td class="border px-4 py-2">{{ $task->id }}</td> -->
+                        <td class="border px-4 py-2"></td>
                         <td class="border px-4 py-2">{{ $task->title }}</td>
                         <td class="border px-4 py-2">{{ $task->body }}</td>
                         <td class="border px-4 py-2">

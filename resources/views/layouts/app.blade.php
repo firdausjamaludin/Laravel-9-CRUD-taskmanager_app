@@ -15,6 +15,22 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="https://cdn.tailwindcss.com/?plugins=forms"></script>
 
+    <style>
+        table {
+            counter-reset: rowNumber;
+        }
+
+        table tr>td:first-child {
+            counter-increment: rowNumber;
+        }
+
+        table tr td:first-child::before {
+            content: counter(rowNumber);
+            min-width: 1em;
+            margin-right: 0.5em;
+        }
+    </style>
+
     @livewireStyles
 
     <!-- Scripts -->

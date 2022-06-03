@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return redirect('/tasks');
+});
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/', function () {
+    Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });
@@ -32,10 +32,9 @@ use App\Http\Livewire\Tasks;
 
 Route::get('tasks', Tasks::class)->middleware('auth');
 
-//
-use App\Http\Controllers\CountdownTimerController;
+// use App\Http\Controllers\CountdownTimerController;
 
 #Countdown timer example
-Route::get('/create-timer', [CountdownTimerController::class, 'create']);
-Route::post('/update-timer', [CountdownTimerController::class, 'update'])->name('timer.update');
-Route::get('/view-timer', [CountdownTimerController::class, 'view']);
+// Route::get('/create-timer', [CountdownTimerController::class, 'create']);
+// Route::post('/update-timer', [CountdownTimerController::class, 'update'])->name('timer.update');
+// Route::get('/view-timer', [CountdownTimerController::class, 'view']);
