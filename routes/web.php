@@ -27,7 +27,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-//
+
 use App\Http\Livewire\Tasks;
 
 Route::get('tasks', Tasks::class)->middleware('auth');

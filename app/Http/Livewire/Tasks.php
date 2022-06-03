@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Task;
+use Illuminate\Support\Facades\Auth;
 
 class Tasks extends Component
 {
@@ -18,7 +19,7 @@ class Tasks extends Component
      */
     public function render()
     {
-        $this->tasks = Task::all();
+        $this->tasks = Task::where('user_id', Auth::user()->id)->orderBy('created_at')->get();
         return view('livewire.tasks');
     }
 
@@ -73,6 +74,7 @@ class Tasks extends Component
      */
     public function store()
     {
+
         $this->validate([
             'title' => 'required',
             'body' => 'required',
@@ -80,9 +82,10 @@ class Tasks extends Component
         ]);
 
         Task::updateOrCreate(['id' => $this->task_id], [
+            'user_id' => auth()->user()->id,
             'title' => $this->title,
             'body' => $this->body,
-            'status' => $this->status
+            'status' => $this->status,
         ]);
 
         session()->flash(
