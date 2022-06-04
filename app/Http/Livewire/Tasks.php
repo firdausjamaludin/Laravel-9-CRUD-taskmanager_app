@@ -64,7 +64,7 @@ class Tasks extends Component
         // $this->title = '';
         $this->body = '';
         $this->status = '';
-        $this->dealine = '';
+        $this->deadline = '';
         $this->task_id = '';
     }
 
