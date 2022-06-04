@@ -66,7 +66,7 @@
 </body>
 
 </html>
-<!-- Make sure to add jquery.countdown.min.js file in C:\xampp\htdocs\taskmanager_app\public\js foler -->
+<!-- Make sure to add jquery.countdown.min.js file in C:\xampp\htdocs\taskmanager_app\public\js folder -->
 <script src="{{asset('js/jquery.countdown.min.js')}}"></script>
 <script>
     ;
