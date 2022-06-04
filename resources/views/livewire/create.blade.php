@@ -23,13 +23,12 @@
                             @error('body') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
 
-                        <div class="form-group">
+                        <div class="mb-4">
                             <label for="exampleFormControlInput3" class="block text-gray-700 text-sm font-bold mb-2">Select Deadline <span class="text-danger">*</span></label>
                             <input type="datetime-local" class="form-control" id="exampleFormControlInput3" wire:model="deadline" />
+                            <br>
+                            @error('deadline') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
-                        @error('deadline') <span class="text-red-500">{{ $message }}</span>@enderror
-
-                        <div class="mb-2"></div>
 
                         <div class="mb-4">
                             <label for="exampleFormControlInput4" class="block text-gray-700 text-sm font-bold mb-2">Status:</label>
@@ -38,6 +37,7 @@
                                 <option value="0">Incomplete</option>
                                 <option value="1">Completed</option>
                             </select>
+                            <br>
                             @error('status') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                     </div>
