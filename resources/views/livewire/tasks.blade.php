@@ -5,7 +5,7 @@
 </x-slot>
 
 <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" style="text-align: center">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
             @if (session()->has('message'))
             <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
@@ -27,26 +27,55 @@
                         <th class="px-2 py-2 w-20">No.</th>
                         <!-- <th class="px-2 py-4">Title</th> -->
                         <th class="px-6 py-2">Task</th>
-                        <th class="px-2 py-2">Status</th>
                         <th class="px-2 py-2">Deadline</th>
+                        <th class="px-2 py-2">Status</th>
                         <th class="px-2 py-2">Action</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     @foreach($tasks as $task)
+
                     <tr>
                         <!-- <td class="border px-4 py-2">{{ $task->id }}</td> -->
                         <td class="border px-2 py-2" style="text-align: center"></td>
                         <!-- <td class="border px-2 py-2" style="text-align: center">{{ $task->title }}</td> -->
                         <td class="border px-6 py-2" style="text-align: center">{{ $task->body }}</td>
                         <td class="border px-2 py-2" style="text-align: center">
+                            {{ $task->deadline }}
+                        </td>
+                        <td class="border px-2 py-2" style="text-align: center">
                             @if ($task->status)
                             <p>Completed</p>
+                            <p>
+                                <?php
+                                date_default_timezone_set('Asia/Kuala_Lumpur');
+                                $fdate =  $task->deadline;
+                                $tdate =  date('m/d/Y h:i:s a', time());
+                                $datetime1 = new DateTime($fdate);
+                                $datetime2 = new DateTime($tdate);
+                                $interval = $datetime2->diff($datetime1);
+                                $days = $interval->format('%r %a days %h hours %i minutes ago');
+                                echo $days;
+                                ?>
+                            </p>
                             @else
                             <p>Incomplete</p>
+                            <p>
+                                <?php
+                                date_default_timezone_set('Asia/Kuala_Lumpur');
+                                $fdate =  $task->deadline;
+                                $tdate =  date('m/d/Y h:i:s a', time());
+                                $datetime1 = new DateTime($fdate);
+                                $datetime2 = new DateTime($tdate);
+                                $interval = $datetime2->diff($datetime1);
+                                $days = $interval->format('%r %a days %h hours %i minutes remaining');
+                                echo $days;
+                                ?>
+                            </p>
                             @endif
                         </td>
-                        <td class="border px-2 py-2" style="text-align: center">{{ $task->deadline }}</td>
+
                         <td class="border px-4 py-2" style="text-align: center">
                             <button wire:click="edit({{ $task->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Edit</button>
                             <button wire:click="delete({{ $task->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Delete</button>
