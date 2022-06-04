@@ -16,11 +16,12 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
+            //$table->string('title');
             $table->text('body');
             $table->boolean('status');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->dateTime('deadline');
             $table->timestamps();
         });
     }

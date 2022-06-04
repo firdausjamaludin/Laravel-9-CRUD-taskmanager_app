@@ -29,6 +29,10 @@
             min-width: 1em;
             margin-right: 0.5em;
         }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
     </style>
 
     @livewireStyles

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Tasks extends Component
 {
-    public $tasks, $title, $body, $status, $task_id;
+    public $tasks, $title, $body, $status, $deadline, $task_id;
     public $isOpen = 0;
 
     /**
@@ -61,9 +61,10 @@ class Tasks extends Component
      */
     private function resetInputFields()
     {
-        $this->title = '';
+        // $this->title = '';
         $this->body = '';
         $this->status = '';
+        $this->dealine = '';
         $this->task_id = '';
     }
 
@@ -76,16 +77,18 @@ class Tasks extends Component
     {
 
         $this->validate([
-            'title' => 'required',
+            // 'title' => 'required',
             'body' => 'required',
             'status' => 'required',
+            'deadline' => 'required',
         ]);
 
         Task::updateOrCreate(['id' => $this->task_id], [
             'user_id' => auth()->user()->id,
-            'title' => $this->title,
+            // 'title' => $this->title,
             'body' => $this->body,
             'status' => $this->status,
+            'deadline' => $this->deadline,
         ]);
 
         session()->flash(
@@ -106,9 +109,10 @@ class Tasks extends Component
     {
         $task = Task::findOrFail($id);
         $this->task_id = $id;
-        $this->title = $task->title;
+        // $this->title = $task->title;
         $this->body = $task->body;
         $this->status = $task->status;
+        $this->deadline = $task->deadline;
 
         $this->openModal();
     }

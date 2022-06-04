@@ -20,35 +20,36 @@
             @if($isOpen)
             @include('livewire.create')
             @endif
-            <table class="table-fixed w-full">
+            <!-- <table class="table-fixed w-full"> -->
+            <table class="w-full">
                 <thead>
                     <tr class="bg-gray-100">
-                        <th class="px-4 py-2 w-20">No.</th>
-                        <th class="px-4 py-2">Title</th>
-                        <th class="px-4 py-2">Body</th>
-                        <th class="px-4 py-2">Status</th>
-                        <th class="px-4 py-2">Action</th>
+                        <th class="px-2 py-2 w-20">No.</th>
+                        <!-- <th class="px-2 py-4">Title</th> -->
+                        <th class="px-6 py-2">Task</th>
+                        <th class="px-2 py-2">Status</th>
+                        <th class="px-2 py-2">Deadline</th>
+                        <th class="px-2 py-2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($tasks as $task)
                     <tr>
                         <!-- <td class="border px-4 py-2">{{ $task->id }}</td> -->
-                        <td class="border px-4 py-2"></td>
-                        <td class="border px-4 py-2">{{ $task->title }}</td>
-                        <td class="border px-4 py-2">{{ $task->body }}</td>
-                        <td class="border px-4 py-2">
+                        <td class="border px-2 py-2" style="text-align: center"></td>
+                        <!-- <td class="border px-2 py-2" style="text-align: center">{{ $task->title }}</td> -->
+                        <td class="border px-6 py-2" style="text-align: center">{{ $task->body }}</td>
+                        <td class="border px-2 py-2" style="text-align: center">
                             @if ($task->status)
                             <p>Completed</p>
                             @else
                             <p>Incomplete</p>
                             @endif
-
-
                         </td>
-                        <td class="border px-4 py-2">
-                            <button wire:click="edit({{ $task->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
-                            <button wire:click="delete({{ $task->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                        <td class="border px-2 py-2" style="text-align: center">{{ $task->deadline }}</td>
+                        <td class="border px-4 py-2" style="text-align: center">
+                            <button wire:click="edit({{ $task->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Edit</button>
+                            <button wire:click="delete({{ $task->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Delete</button>
                         </td>
                     </tr>
                     @endforeach
