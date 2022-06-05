@@ -5,7 +5,9 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <img src="/images/picture.png" alt="" style="width: 50px ;">
+                    <a href="/">
+                        <img src="/images/picture.png" alt="" style="width: 50px ;">
+                    </a>
                     <!-- <a href="{{ route('dashboard') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a> -->
