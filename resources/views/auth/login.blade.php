@@ -14,7 +14,6 @@
 <x-guest-layout>
 
     <x-jet-authentication-card>
-
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
@@ -51,7 +50,6 @@
                 </label>
             </div> -->
 
-
             <div class="flex items-center justify-center mt-4">
                 @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
@@ -66,8 +64,6 @@
         <a class=" flex items-center justify-center ml-4 underline text-sm text-blue-600 hover:text-gray-900" href="/register">
             {{ __('Register') }}
         </a>
-
-
     </x-jet-authentication-card>
 
 </x-guest-layout>

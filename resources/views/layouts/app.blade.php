@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="https://cdn.tailwindcss.com/?plugins=forms"></script>
 
-    <style>
+    <!-- <style>
         table {
             counter-reset: rowNumber;
         }
@@ -33,7 +33,7 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
-    </style>
+    </style> -->
 
     @livewireStyles
 
