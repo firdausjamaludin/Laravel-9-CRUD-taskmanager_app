@@ -15,7 +15,7 @@
 
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <img src="/images/picture.png" alt="" style="width: 150px ;">
         </x-slot>
         <x-jet-validation-errors class="mb-4" />
         @if (session('status'))
