@@ -67,7 +67,7 @@
                         <!-- <td class="border px-4 py-2">{{ $task->id }}</td> -->
                         <!-- <td class="border px-2 py-2" style="text-align: center"></td> -->
                         <!-- <td class="border px-2 py-2" style="text-align: center">{{ $task->title }}</td> -->
-                        <td class="border-2 px-6 py-6" colspan="3">{{ $task->body }}
+                        <td class="break-words border-2 px-6 py-6" colspan="3">{{ $task->body }}
                     </tr>
                     <tr class="text-sm bg-gray-100 border-2 px-2 py-2">
                         <th class="">Deadline</th>
