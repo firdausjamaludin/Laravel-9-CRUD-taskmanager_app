@@ -75,14 +75,12 @@ class Tasks extends Component
      */
     public function store()
     {
-
         $this->validate([
             // 'title' => 'required',
             'body' => 'required',
             'status' => 'required',
             'deadline' => 'required',
         ]);
-
         Task::updateOrCreate(['id' => $this->task_id], [
             'user_id' => auth()->user()->id,
             // 'title' => $this->title,
@@ -90,12 +88,10 @@ class Tasks extends Component
             'status' => $this->status,
             'deadline' => $this->deadline,
         ]);
-
         session()->flash(
             'message',
             $this->task_id ? 'Task Updated Successfully.' : 'Task Created Successfully.'
         );
-
         $this->closeModal();
         $this->resetInputFields();
     }

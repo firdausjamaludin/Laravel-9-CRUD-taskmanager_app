@@ -15,8 +15,22 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="https://cdn.tailwindcss.com/?plugins=forms"></script>
 
-    <!-- <style>
-        table {
+    <style>
+        body {
+            counter-reset: Serial;
+            /* Set the Serial counter to 0 */
+        }
+
+        tr th div:nth-child(1):before {
+            counter-increment: Serial;
+            /* Increment the Serial counter */
+            content: "Task No: "counter(Serial) "";
+            /* Display the counter */
+        }
+
+
+
+        /* table {
             counter-reset: rowNumber;
         }
 
@@ -25,15 +39,16 @@
         }
 
         table tr td:first-child::before {
+
             content: counter(rowNumber);
             min-width: 1em;
             margin-right: 0.5em;
-        }
+        } 
 
-        tr:nth-child(even) {
+         tr:nth-child(even) {
             background-color: #dddddd;
-        }
-    </style> -->
+        } */
+    </style>
 
     @livewireStyles
 

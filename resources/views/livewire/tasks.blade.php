@@ -31,11 +31,13 @@
                 </thead> -->
                 <tbody>
                     @foreach($tasks as $task)
-                    <tr>
-                        <th class=" text-sm bg-gray-100 border-2 px-2 py-2" colspan="3">
+                    <tr class="border-2">
+                        <th class=" text-sm bg-gray-100 border-2 px-2 py-2">
+                            <div></div>
+                        </th>
+                        <th class=" text-sm bg-gray-100 border-2 px-2 py-2" colspan="2">
                             Time left:
                             @if ($task->status)
-
                             <?php
                             date_default_timezone_set('Asia/Kuala_Lumpur');
                             $fdate =  $task->deadline;
@@ -46,9 +48,7 @@
                             $days = $interval->format('%r %a days %h hours %i minutes ago');
                             echo $days;
                             ?>
-
                             @else
-
                             <?php
                             date_default_timezone_set('Asia/Kuala_Lumpur');
                             $fdate =  $task->deadline;
@@ -59,20 +59,21 @@
                             $days = $interval->format('%r %a days %h hours %i minutes remaining');
                             echo $days;
                             ?>
-
                             @endif
                         </th>
                     </tr>
                     <tr>
                         <!-- <td class="border px-4 py-2">{{ $task->id }}</td> -->
-                        <!-- <td class="border px-2 py-2" style="text-align: center"></td> -->
+                        <!-- <td id="tasktable" class="border px-2 py-2" style="text-align: center">
+                            <h5></h5>
+                        </td> -->
                         <!-- <td class="border px-2 py-2" style="text-align: center">{{ $task->title }}</td> -->
                         <td class="break-words border-2 px-6 py-6" colspan="3">{{ $task->body }}
                     </tr>
                     <tr class="text-sm bg-gray-100 border-2 px-2 py-2">
-                        <th class="">Deadline</th>
-                        <th class="">Status</th>
-                        <th class="">Action</th>
+                        <th class="border">Deadline</th>
+                        <th class="border">Status</th>
+                        <th class="border">Action</th>
                     </tr>
                     <tr class="text-sm bg-gray-100 border-2 px-2 py-2">
                         <td class="bg-gray-100 border px-2 py-2" style="text-align: center">
@@ -81,30 +82,24 @@
                         <td class="bg-gray-100 border px-2 py-2" style="text-align: center">
                             @if ($task->status)
                             <p>Completed</p>
-
                             @else
                             <p>Incomplete</p>
-
                             @endif
                         </td>
-
                         <td class="bg-gray-100 border px-4 py-2" style="text-align: center">
                             <button wire:click="edit({{ $task->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Edit</button>
                             <button wire:click="delete({{ $task->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Delete</button>
                         </td>
                     </tr>
                     <tr>
-                        <td class="px-3 py-3" colspan="3">
+                        <th class="px-3 py-3" colspan="3"></th>
                     </tr>
                     @endforeach
                 </tbody>
                 <tbody>
-
                 </tbody>
             </table>
             <table class="table-fixed w-full">
-
-
             </table>
         </div>
     </div>
